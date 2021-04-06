@@ -1,5 +1,5 @@
 <pre>
-Left: train results                                           Right: test results  
+train results                                                  test results  
 </pre>
 
 
