@@ -11,8 +11,8 @@ library(uwot)
 
 
 dataset <- read.csv("dataMining.csv")
-# wrong class
-dataset <- dataset[-c(107), ] 
+
+dataset <- dataset[-c(107), ] # wrong class
 
 clean <- function(x){
   
@@ -42,17 +42,14 @@ clean <- function(x){
 inputs <- clean(dataset$content)
 inputs <- umap(as.matrix(inputs),n_neighbors = 10, n_components = 128)
 
-# labels <- as.data.frame(dataset$class)
 labels <-as.factor(dataset$class)
-# tmp <- dummyVars(" ~ .", data = labels)
-# labels <- as.matrix(predict(tmp, labels))
 
 
 
 
 
 
-## 80% of the sample size
+## 85% of the sample size
 smp_size <- floor(0.85 * nrow(inputs))
 
 ## set the seed to make your partition reproducible
@@ -64,14 +61,6 @@ x_train <- inputs[train_ind, ]
 y_train <- labels[train_ind]
 x_test <- inputs[-train_ind, ]
 y_test <- labels[-train_ind]
-
-
-# x_train <- umap(as.matrix(x_train), n_components = 128)
-# x_test <- umap(as.matrix(x_test), n_components = 128)
-
-# x_train <- as.data.frame(as.matrix(x_train[5]))
-# x_test <- as.data.frame(as.matrix(x_test[5]))
-
 
 
 x_train <- as.data.frame(as.matrix(x_train))
