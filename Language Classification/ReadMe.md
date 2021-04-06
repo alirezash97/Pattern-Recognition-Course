@@ -1,2 +1,2 @@
-<pre>Left: train results                                           Right: test results                                  
+<pre> Left: train results                                           Right: test results  <pre>                            
 ![Results](Report.jpg)
